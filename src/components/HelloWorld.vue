@@ -580,6 +580,14 @@ td{
     padding: 2px 4px;
   }
   .subject{
+  width: 300px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  td, th{
+    padding: 2px 4px;
+  }
+  .subject{
   width: 150px;
   }
 }
