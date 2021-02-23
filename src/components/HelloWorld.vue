@@ -1,9 +1,11 @@
 <template>
 <div id="table">
-  <p> <a id="timetable" target="_blank" href="https://mmf.bsu.by/ru/raspisanie-zanyatij/dnevnoe-otdelenie/3-kurs/2-gruppa/">Timetable</a>
-  <button v-on:click="week = oposite(week)">Week <b>{{week}}</b></button> <button v-on:click="group = oposite(group)">Group <b>{{group}}</b></button>
-  <input v-model.trim="search" placeholder="поиск"></p>
-  <table style="float:left; margin-right: 20px;">
+  <div style="display: flex; width: 700px; margin: auto; margin-bottom: 10px">
+    <a id="timetable" target="_blank" href="https://mmf.bsu.by/ru/raspisanie-zanyatij/dnevnoe-otdelenie/3-kurs/2-gruppa/">Timetable</a>
+    <button v-on:click="week = oposite(week)">Week <b>{{week}}</b></button> <button v-on:click="group = oposite(group)">Group <b>{{group}}</b></button>
+    <input v-model.trim="search" placeholder="поиск">
+  </div>
+  <table style="margin: auto;">
     <thead>
       <th>day</th>
       <th>time</th>
@@ -50,7 +52,7 @@ const createObject = (week, group, subject, type, link="") => {
 }
 
 const json = {
-  "Понедельник":
+  "Пон.":
   {
     "13:00–14:20": [
         createObject("", "", `С/м Основы права (с 01.03) 
@@ -175,7 +177,7 @@ const json = {
   },
 }
 
-const day_of_week = { "Понедельник": 1, "Вторник": 2, "Среда": 3, "Пятница": 5, "Суббота": 6 }
+const day_of_week = { "Пон.": 1, "Вторник": 2, "Среда": 3, "Пятница": 5, "Суббота": 6 }
 
 export default {
   name: 'HelloWorld',
