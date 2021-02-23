@@ -1,11 +1,11 @@
 <template>
 <div id="table">
-  <div id="up" style="display: flex; width: 700px; margin: auto; margin-bottom: 10px">
+  <div id="up" style="display: flex; margin-bottom: 10px">
     <a id="timetable" target="_blank" href="https://mmf.bsu.by/ru/raspisanie-zanyatij/dnevnoe-otdelenie/3-kurs/2-gruppa/">Timetable</a>
     <button v-on:click="week = oposite(week)">Week <b>{{week}}</b></button> <button v-on:click="group = oposite(group)">Group <b>{{group}}</b></button>
-    <input v-model.trim="search" placeholder="поиск">
+    <input v-model.trim="search" placeholder="поиск" style="width: 70px">
   </div>
-  <table style="margin: auto;">
+  <table>
     <thead>
       <th>day</th>
       <th>time</th>
@@ -448,7 +448,6 @@ table {
 
 table{
   border-collapse: collapse;
-  margin-left: 100px;
 }
 
 img {
@@ -557,7 +556,7 @@ pre {
   background-color: rgb(121, 121, 121);
 }
 button{
-  margin-right: 30px;
+  margin-right: 15px;
 }
 #timetable{
   margin-left: 5px;
@@ -580,7 +579,7 @@ td{
     padding: 2px 4px;
   }
   .subject{
-  width: 300px;
+  width: 290px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -590,6 +589,11 @@ td{
   .subject{
   width: 150px;
   }
+}
+#table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 </style>
