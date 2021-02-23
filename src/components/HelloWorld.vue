@@ -1,6 +1,6 @@
 <template>
 <div id="table">
-  <div style="display: flex; width: 700px; margin: auto; margin-bottom: 10px">
+  <div id="up" style="display: flex; width: 700px; margin: auto; margin-bottom: 10px">
     <a id="timetable" target="_blank" href="https://mmf.bsu.by/ru/raspisanie-zanyatij/dnevnoe-otdelenie/3-kurs/2-gruppa/">Timetable</a>
     <button v-on:click="week = oposite(week)">Week <b>{{week}}</b></button> <button v-on:click="group = oposite(group)">Group <b>{{group}}</b></button>
     <input v-model.trim="search" placeholder="поиск">
@@ -22,7 +22,7 @@
             <td v-bind:class="{ active: is_searched(time) }" v-if="is_seen_time(objs, obj)" :rowspan="calc(objs)">
               {{time}}</td>
             <td v-bind:class="{ active: is_searched(obj.week + obj.group) }">{{obj.week}} {{obj.group}}</td>
-            <td v-bind:class="{ active: is_searched(obj.subject) }">
+            <td v-bind:class="{ active: is_searched(obj.subject), subject: true }">
                             <template v-if="obj.link!=''"><a :href="obj.link">{{obj.subject}}</a></template>
                             <template v-if="obj.link==''">{{obj.subject}}</template>                       
                         </td>
@@ -435,12 +435,12 @@ table {
       border: 1px solid #cccccc;
       text-align: left;
       margin: 0;
-      padding: 6px 13px; }
+      }
     table tr td {
       border: 1px solid #cccccc;
       text-align: left;
       margin: 0;
-      padding: 6px 13px; }
+      }
     table tr th :first-child, table tr td :first-child {
       margin-top: 0; }
     table tr th :last-child, table tr td :last-child {
@@ -560,8 +560,8 @@ button{
   margin-right: 30px;
 }
 #timetable{
-  margin-left: 120px;
-  margin-right: 30px;
+  margin-left: 5px;
+  margin-right: 15px;
 }
 li{
   margin: 0px;
@@ -572,4 +572,17 @@ a {
 *{
   font-family: sans-serif;
 }
+td{
+  padding: 6px 13px; 
+}
+@media only screen and (max-width: 600px) {
+  td, th{
+    padding: 2px 4px;
+    font-size: 10px;
+  }
+  .subject{
+  width: 150px;
+  }
+}
+
 </style>
