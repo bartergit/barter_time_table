@@ -575,10 +575,9 @@ a {
 td{
   padding: 6px 13px; 
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   td, th{
     padding: 2px 4px;
-    font-size: 10px;
   }
   .subject{
   width: 150px;
